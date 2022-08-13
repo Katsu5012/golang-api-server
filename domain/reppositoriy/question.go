@@ -10,3 +10,4 @@ type QuestionRepository interface{
 	Update(id int)(*model.Question,error)
 	Delete(id int) error
 }
+

@@ -21,7 +21,7 @@ func NewQuestion(title,content string,isAnswer bool)(*Question,error){
 
 	question :=&Question{
        Title :title,
-	   Content:conten
+	   Content:content,
 	}
 
 	return question,nil
