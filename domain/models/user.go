@@ -1,13 +1,26 @@
 package model
 
-import "errors"
+import (
+	"errors"
+	"time"
+
+	"github.com/jinzhu/gorm"
+)
 
 
 type User struct{
-	Id int 
+	gorm.Model
+	ID int 
 	Name string
+	// TODO: ValueObjectを作成する
 	MailAddress string	
+	// NOTE: Rollにするか検討する
 	IsAdminUser bool
+	Questions []Question
+	Answers []Answer
+    CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt time.Time
 }
 
 // Userのconstructor

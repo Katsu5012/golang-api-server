@@ -7,30 +7,25 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type Question struct{
+type Answer struct{
 	gorm.Model
-	ID int 
-	Title string
+	ID int `gorm:"primaryKey"`
 	Content string
-		UserId uint
-    CreatedAt time.Time
+	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt time.Time
+	QuestionID int
+	Question Question `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 }
 
-func NewQuestion(title,content string,isAnswer bool)(*Question,error){
-	if title == "" {
-		return nil,errors.New("タイトルが入力されていません")
-	}
-
+func NewAnswer(content string)(*Question,error){
 	if content == ""{
 		return nil,errors.New("内容が入力されていません")
 	}
 
 	question :=&Question{
-       Title :title,
 	   Content:content,
-	}
+	} 
 
 	return question,nil
 }
