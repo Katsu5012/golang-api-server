@@ -14,7 +14,8 @@ type User struct{
 	Name string
 	// TODO: ValueObjectを作成する
 	MailAddress string	
-	// NOTE: Rollにするか検討する
+	// NOTE: 実際はRollテーブルを作成し中間テーブルで持たせる
+	// 今回は便宜上isAdminUserで定義する
 	IsAdminUser bool
 	Questions []Question
 	Answers []Answer

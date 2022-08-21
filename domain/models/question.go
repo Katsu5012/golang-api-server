@@ -12,7 +12,7 @@ type Question struct{
 	ID int 
 	Title string
 	Content string
-		UserId uint
+    UserId uint
     CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt time.Time

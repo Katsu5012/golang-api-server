@@ -11,11 +11,12 @@ type Answer struct{
 	gorm.Model
 	ID int `gorm:"primaryKey"`
 	Content string
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt time.Time
 	QuestionID int
 	Question Question `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+	UserID uint
+    CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt time.Time
 }
 
 func NewAnswer(content string)(*Question,error){
